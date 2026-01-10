@@ -1,0 +1,472 @@
+/* ═══════════════════════════════════════════════════════════
+   SKETCH CHAIN ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────
+   COUNTDOWN ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes countdown-pulse {
+	0% {
+		transform: scale(0.3);
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.15);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes countdown-exit {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+.countdown-number {
+	animation: countdown-pulse 0.5s var(--ease-out-back);
+}
+
+.countdown-number-exit {
+	animation: countdown-exit 0.3s var(--ease-out-expo) forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TIMER URGENCY ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes timer-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.02);
+	}
+}
+
+@keyframes timer-urgent-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+		filter: brightness(1);
+	}
+	50% {
+		transform: scale(1.05);
+		filter: brightness(1.2);
+	}
+}
+
+@keyframes urgent-shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	10% {
+		transform: translateX(-3px) rotate(-0.5deg);
+	}
+	30% {
+		transform: translateX(3px) rotate(0.5deg);
+	}
+	50% {
+		transform: translateX(-2px) rotate(-0.3deg);
+	}
+	70% {
+		transform: translateX(2px) rotate(0.3deg);
+	}
+	90% {
+		transform: translateX(-1px);
+	}
+}
+
+@keyframes screen-flash {
+	0% {
+		background-color: var(--bg-primary);
+	}
+	50% {
+		background-color: var(--danger);
+	}
+	100% {
+		background-color: var(--bg-primary);
+	}
+}
+
+.timer-warning {
+	animation: timer-pulse 1s ease-in-out infinite;
+}
+
+.timer-critical {
+	animation:
+		urgent-shake 0.4s ease-in-out infinite,
+		timer-urgent-pulse 0.5s ease-in-out infinite;
+}
+
+.screen-flash {
+	animation: screen-flash 0.3s ease-out;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CARD FLIP ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes card-flip-in {
+	0% {
+		transform: perspective(1000px) rotateY(-90deg);
+		opacity: 0;
+	}
+	100% {
+		transform: perspective(1000px) rotateY(0deg);
+		opacity: 1;
+	}
+}
+
+@keyframes card-flip-out {
+	0% {
+		transform: perspective(1000px) rotateY(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: perspective(1000px) rotateY(90deg);
+		opacity: 0;
+	}
+}
+
+.card-flip-enter {
+	animation: card-flip-in 0.6s var(--ease-out-expo) forwards;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+}
+
+.card-flip-exit {
+	animation: card-flip-out 0.4s var(--ease-in-out) forwards;
+	transform-style: preserve-3d;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PAGE TURN ANIMATIONS (for reveal)
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes page-turn {
+	0% {
+		transform: perspective(1200px) rotateY(0deg);
+		transform-origin: left center;
+	}
+	100% {
+		transform: perspective(1200px) rotateY(-180deg);
+		transform-origin: left center;
+	}
+}
+
+@keyframes page-enter {
+	0% {
+		transform: perspective(1200px) rotateY(90deg);
+		transform-origin: left center;
+		opacity: 0;
+	}
+	100% {
+		transform: perspective(1200px) rotateY(0deg);
+		transform-origin: left center;
+		opacity: 1;
+	}
+}
+
+.page-turn {
+	animation: page-turn 0.8s var(--ease-in-out) forwards;
+	transform-style: preserve-3d;
+}
+
+.page-enter {
+	animation: page-enter 0.6s var(--ease-out-expo) forwards;
+	transform-style: preserve-3d;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FLOATING & BOUNCE ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-12px);
+	}
+}
+
+@keyframes bounce-in {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	70% {
+		transform: scale(0.95);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes bounce-subtle {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-4px);
+	}
+}
+
+@keyframes slide-up {
+	0% {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-right {
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-left {
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.float {
+	animation: float 3s ease-in-out infinite;
+}
+
+.bounce-in {
+	animation: bounce-in 0.5s var(--ease-out-back);
+}
+
+.bounce-subtle {
+	animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.slide-up {
+	animation: slide-up 0.4s var(--ease-out-expo);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GLOW & PULSE EFFECTS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes glow-pulse {
+	0%,
+	100% {
+		box-shadow: 0 0 20px var(--accent-glow);
+	}
+	50% {
+		box-shadow:
+			0 0 40px var(--accent-glow),
+			0 0 60px var(--accent-glow);
+	}
+}
+
+@keyframes glow-pulse-danger {
+	0%,
+	100% {
+		box-shadow: 0 0 20px var(--danger-glow);
+	}
+	50% {
+		box-shadow:
+			0 0 40px var(--danger-glow),
+			0 0 60px var(--danger-glow);
+	}
+}
+
+@keyframes glow-pulse-success {
+	0%,
+	100% {
+		box-shadow: 0 0 20px var(--success-glow);
+	}
+	50% {
+		box-shadow:
+			0 0 40px var(--success-glow),
+			0 0 60px var(--success-glow);
+	}
+}
+
+.glow-pulse {
+	animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.glow-pulse-danger {
+	animation: glow-pulse-danger 1s ease-in-out infinite;
+}
+
+.glow-pulse-success {
+	animation: glow-pulse-success 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PASS ARROW ANIMATION
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes pass-arrow {
+	0%,
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	50% {
+		transform: translateX(-20px);
+		opacity: 0.7;
+	}
+}
+
+@keyframes pass-book {
+	0% {
+		transform: translateX(0) rotate(0deg);
+	}
+	50% {
+		transform: translateX(-30px) rotate(-5deg);
+	}
+	100% {
+		transform: translateX(-60px) rotate(-10deg);
+		opacity: 0;
+	}
+}
+
+.pass-arrow {
+	animation: pass-arrow 1.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CELEBRATION
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes celebrate-pop {
+	0% {
+		transform: scale(0) rotate(-10deg);
+		opacity: 0;
+	}
+	60% {
+		transform: scale(1.2) rotate(5deg);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1) rotate(0deg);
+		opacity: 1;
+	}
+}
+
+@keyframes celebrate-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.celebrate-pop {
+	animation: celebrate-pop 0.6s var(--ease-out-back);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LOADING / WAITING STATES
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes dot-bounce {
+	0%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-8px);
+	}
+}
+
+.loading-dots span {
+	display: inline-block;
+	animation: dot-bounce 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+	animation-delay: 0.16s;
+}
+
+.loading-dots span:nth-child(3) {
+	animation-delay: 0.32s;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   STAGGER UTILITIES
+   ───────────────────────────────────────────────────────────── */
+
+.stagger-1 {
+	animation-delay: 0.05s;
+}
+.stagger-2 {
+	animation-delay: 0.1s;
+}
+.stagger-3 {
+	animation-delay: 0.15s;
+}
+.stagger-4 {
+	animation-delay: 0.2s;
+}
+.stagger-5 {
+	animation-delay: 0.25s;
+}
+.stagger-6 {
+	animation-delay: 0.3s;
+}
+.stagger-7 {
+	animation-delay: 0.35s;
+}
+.stagger-8 {
+	animation-delay: 0.4s;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION SUPPORT
+   ───────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}

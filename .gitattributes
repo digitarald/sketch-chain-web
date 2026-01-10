@@ -1,0 +1,15 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Svelte and web files
+*.svelte text eol=lf
+*.ts text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+
+# Ignore for diff
+package-lock.json binary
+pnpm-lock.yaml binary

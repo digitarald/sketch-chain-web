@@ -1,0 +1,292 @@
+/* Global Styles — Import order matters */
+@import './variables.css';
+@import './typography.css';
+@import './animations.css';
+
+/* ═══════════════════════════════════════════════════════════
+   BASE LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+
+html,
+body {
+	height: 100%;
+	overscroll-behavior: none;
+}
+
+body {
+	background: var(--bg-primary);
+	background-image:
+		radial-gradient(ellipse at top, var(--bg-secondary) 0%, transparent 60%),
+		radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 40%);
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* Mobile-only: prevent rubber-banding in PWA context */
+@media (max-width: 768px) and (display-mode: standalone) {
+	body {
+		overflow: hidden;
+	}
+}
+
+#app {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: var(--space-4);
+	padding-top: calc(var(--safe-area-inset-top) + var(--space-4));
+	padding-bottom: calc(var(--safe-area-inset-bottom) + var(--space-4));
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTON STYLES
+   ═══════════════════════════════════════════════════════════ */
+
+.btn {
+	font-family: var(--font-display);
+	font-size: var(--text-lg);
+	font-weight: 600;
+	padding: var(--space-4) var(--space-8);
+	border: none;
+	border-radius: var(--radius-lg);
+	cursor: pointer;
+	transition:
+		transform var(--duration-fast) var(--ease-out-expo),
+		box-shadow var(--duration-fast) var(--ease-out-expo),
+		background-color var(--duration-fast) var(--ease-out-expo);
+	touch-action: manipulation;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-2);
+	text-decoration: none;
+}
+
+.btn:active {
+	transform: scale(0.97);
+}
+
+.btn-primary {
+	background: var(--accent-primary);
+	color: var(--text-inverse);
+	box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+	box-shadow: var(--shadow-glow-strong);
+}
+
+.btn-primary:active {
+	background: #e55a28;
+}
+
+.btn-secondary {
+	background: var(--bg-elevated);
+	color: var(--text-primary);
+	border: var(--border-thin);
+}
+
+.btn-secondary:hover {
+	background: var(--bg-card);
+}
+
+.btn-ghost {
+	background: transparent;
+	color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+	color: var(--text-primary);
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-lg {
+	font-size: var(--text-xl);
+	padding: var(--space-5) var(--space-10);
+	border-radius: var(--radius-xl);
+}
+
+.btn-block {
+	width: 100%;
+}
+
+.btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD STYLES
+   ═══════════════════════════════════════════════════════════ */
+
+.card {
+	background: var(--bg-card);
+	border-radius: var(--radius-lg);
+	padding: var(--space-6);
+	border: var(--border-thin);
+	box-shadow: var(--shadow-md);
+}
+
+.card-elevated {
+	background: var(--bg-elevated);
+	box-shadow: var(--shadow-lg);
+}
+
+.card-glow {
+	box-shadow: var(--shadow-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORM ELEMENTS
+   ═══════════════════════════════════════════════════════════ */
+
+.input {
+	font-family: var(--font-ui);
+	font-size: var(--text-lg);
+	padding: var(--space-4);
+	background: var(--bg-secondary);
+	border: 2px solid transparent;
+	border-radius: var(--radius-md);
+	color: var(--text-primary);
+	width: 100%;
+	transition:
+		border-color var(--duration-fast) var(--ease-out-expo),
+		box-shadow var(--duration-fast) var(--ease-out-expo);
+}
+
+.input:focus {
+	outline: none;
+	border-color: var(--accent-primary);
+	box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.input::placeholder {
+	color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════ */
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.gap-1 {
+	gap: var(--space-1);
+}
+.gap-2 {
+	gap: var(--space-2);
+}
+.gap-3 {
+	gap: var(--space-3);
+}
+.gap-4 {
+	gap: var(--space-4);
+}
+.gap-6 {
+	gap: var(--space-6);
+}
+.gap-8 {
+	gap: var(--space-8);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.w-full {
+	width: 100%;
+}
+
+.mt-auto {
+	margin-top: auto;
+}
+.mb-auto {
+	margin-bottom: auto;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCREEN LAYOUTS
+   ═══════════════════════════════════════════════════════════ */
+
+.screen {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: var(--space-6);
+}
+
+.screen-header {
+	text-align: center;
+}
+
+.screen-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-6);
+}
+
+.screen-footer {
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBAR STYLING
+   ═══════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--text-muted);
+	border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--text-secondary);
+}

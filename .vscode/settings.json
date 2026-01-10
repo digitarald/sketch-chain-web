@@ -1,0 +1,16 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"svelte.enable-ts-plugin": true,
+	"files.associations": {
+		"*.css": "css"
+	},
+	"css.validate": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	}
+}
