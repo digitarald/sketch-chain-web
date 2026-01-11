@@ -1,6 +1,7 @@
 <script lang="ts">
   import '$lib/styles/global.css';
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
   import { audioStore } from '$lib/stores/audio';
   
   let { children } = $props();
@@ -19,7 +20,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href="/icons/favicon.svg" />
+  <link rel="icon" href="{base}/icons/favicon.svg" />
 </svelte:head>
 
 {@render children()}

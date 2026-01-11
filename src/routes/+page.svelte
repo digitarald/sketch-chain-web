@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import GameSetup from '$lib/components/GameSetup.svelte';
   import SettingsModal from '$lib/components/SettingsModal.svelte';
   import { gameStore, type Difficulty } from '$lib/stores/game';
@@ -30,7 +31,7 @@
     gameStore.startGame(words);
     
     // Navigate to play screen
-    goto('/play');
+    goto(`${base}/play`);
   }
 </script>
 

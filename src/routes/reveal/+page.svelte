@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { gameStore, phase, steps, originalWord } from '$lib/stores/game';
 	import { playSound } from '$lib/stores/audio';
@@ -12,7 +13,7 @@
 	// Redirect if not in reveal phase or empty steps
 	onMount(() => {
 		if ($phase !== 'reveal' || $steps.length === 0) {
-			goto('/');
+			goto(`${base}/`);
 		}
 	});
 
@@ -55,7 +56,7 @@
 
 	function playAgain() {
 		gameStore.reset();
-		goto('/');
+		goto(`${base}/`);
 	}
 
 	function getGameResult(): string {

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import WordCard from '$lib/components/WordCard.svelte';
@@ -22,7 +23,7 @@
 	// Redirect to lobby if no game in progress
 	onMount(() => {
 		if ($phase === 'lobby') {
-			goto('/');
+			goto(`${base}/`);
 		}
 	});
 
@@ -58,7 +59,7 @@
 		// Check if game is complete
 		if (gameStore.isComplete()) {
 			gameStore.transition('reveal');
-			goto('/reveal');
+			goto(`${base}/reveal`);
 		} else {
 			gameStore.transition('pass-after-guess');
 		}
