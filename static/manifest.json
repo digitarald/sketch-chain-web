@@ -2,14 +2,14 @@
   "name": "Sketch Chain",
   "short_name": "Sketch Chain",
   "description": "Draw, guess, laugh, repeat — the ultimate party game companion",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#ff6b35",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icons/favicon.svg",
+      "src": "./icons/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }

@@ -9,14 +9,14 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html', // SPA fallback for client-side routing
+			fallback: '404.html', // GitHub Pages uses 404.html for SPA fallback
 			precompress: false,
 			strict: true
 		}),
 		paths: {
 			// Set base path for GitHub Pages (repo name)
-			// Leave empty for custom domain or username.github.io
-			base: process.env.NODE_ENV === 'production' ? '' : ''
+			// Uses BASE_PATH env var set in CI, empty for local dev
+			base: process.env.BASE_PATH || ''
 		}
 	}
 };
